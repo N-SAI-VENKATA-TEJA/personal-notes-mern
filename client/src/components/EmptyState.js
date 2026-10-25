@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiPlus, FiSearch, FiX } from 'react-icons/fi';
+import { FiPlus, FiX } from 'react-icons/fi';
 
 function EmptyState({ searchQuery, selectedTag, viewFilter, onCreateNote, onClearFilters }) {
   const hasFilters = searchQuery || selectedTag || viewFilter !== 'all';

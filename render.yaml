@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: personal-notes-vault
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && cd client && npm install && npm run build
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://saivenkatanakkina_db_user:FSsScvC1vcJLcnZT@cluster0.dhn8pck.mongodb.net/personal_notes_app?retryWrites=true&w=majority

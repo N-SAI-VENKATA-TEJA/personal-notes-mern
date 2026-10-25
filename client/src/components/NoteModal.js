@@ -161,20 +161,33 @@ function NoteModal({ note, onSave, onClose, existingTags }) {
             )}
           </div>
 
-          {/* Color */}
-          <div className="form-group">
-            <label className="form-label">Color Label</label>
-            <div className="color-picker">
-              {NOTE_COLORS.map((c) => (
-                <button
-                  key={c.value}
-                  className={`color-option ${color === c.value ? 'selected' : ''}`}
-                  style={{ backgroundColor: c.value }}
-                  onClick={() => setColor(c.value)}
-                  title={c.label}
-                  type="button"
+          {/* Color & Pin */}
+          <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <label className="form-label">Color Label</label>
+              <div className="color-picker">
+                {NOTE_COLORS.map((c) => (
+                  <button
+                    key={c.value}
+                    className={`color-option ${color === c.value ? 'selected' : ''}`}
+                    style={{ backgroundColor: c.value }}
+                    onClick={() => setColor(c.value)}
+                    title={c.label}
+                    type="button"
+                  />
+                ))}
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 14 }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: 13, color: 'var(--text-secondary)' }}>
+                <input
+                  type="checkbox"
+                  checked={isPinned}
+                  onChange={(e) => setIsPinned(e.target.checked)}
+                  style={{ accentColor: 'var(--accent-primary)', width: 16, height: 16 }}
                 />
-              ))}
+                Pin note to top
+              </label>
             </div>
           </div>
         </div>
